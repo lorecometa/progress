@@ -3,28 +3,20 @@
 function toggleMenu() {
     const menu = document.querySelector('.menu');
     const hamburger = document.querySelector('.hamburger');
-    if (!menu || !hamburger) {
-        console.warn("Menu o hamburger non trovati nel DOM.");
-        return;
+    if (menu) {
+        menu.classList.toggle('active');
+        hamburger.classList.toggle('is-active');
     }
-    menu.classList.toggle('active');
-    hamburger.classList.toggle('is-active');
 }
 
 // Chiudi il menu cliccando su un link del menu
 document.addEventListener('DOMContentLoaded', () => {
     const menuLinks = document.querySelectorAll('.menu a');
-    const menu = document.querySelector('.menu');
-    const hamburger = document.querySelector('.hamburger');
-
-    if (!menu || !hamburger) {
-        console.warn("Menu o hamburger non trovati nel DOM.");
-        return;
-    }
-
     menuLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (menu.classList.contains('active')) {
+            const menu = document.querySelector('.menu');
+            const hamburger = document.querySelector('.hamburger');
+            if (menu && menu.classList.contains('active')) {
                 menu.classList.remove('active');
                 hamburger.classList.remove('is-active');
             }
@@ -32,54 +24,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Slider
+
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
-const totalSlides = slides ? slides.length : 0;
+const totalSlides = slides.length;
 
+// Funzione per cambiare slide
 function changeSlide(direction) {
-    if (!slides || totalSlides === 0) {
-        console.warn("Nessuna slide trovata.");
-        return;
-    }
     slides[currentSlide].classList.remove('active');
     currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
     slides[currentSlide].classList.add('active');
 }
 
-// Scorrimento automatico solo se ci sono slide
-if (totalSlides > 0) {
-    setInterval(() => {
-        changeSlide(1);
-    }, 5000); // Cambia slide ogni 5 secondi
-}
+// Scorrimento automatico
+setInterval(() => {
+    changeSlide(1);
+}, 5000); // Cambia slide ogni 5 secondi
 
-// Funzione per aprire e chiudere tabelle
+
+
+// funzioni per aprire e chiudere tabelle
+
 function toggleDetails(id) {
     const details = document.getElementById(id);
-    if (!details) {
-        console.warn(`Elemento con id "${id}" non trovato.`);
-        return;
+    if (details.classList.contains('hidden')) {
+        details.classList.remove('hidden'); // Mostra i dettagli
+        details.classList.add('active');
+    } else {
+        details.classList.add('hidden'); // Nascondi i dettagli
+        details.classList.remove('active');
     }
-    details.classList.toggle('hidden');
-    details.classList.toggle('active');
 }
 
-// Aggiunge animazione a "Chi sono"
+// aggiunge animazione a chi sono
+
 document.addEventListener("DOMContentLoaded", () => {
     const aboutSection = document.querySelector(".about-container");
-
-    if (!aboutSection) {
-        console.warn("L'elemento '.about-container' non è stato trovato nel DOM.");
-        return;
-    }
 
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     aboutSection.style.animation = "fadeIn 1.5s ease-in-out forwards";
-                    observer.disconnect(); // Disconnetti l'osservatore dopo l'attivazione
                 }
             });
         },
@@ -89,41 +75,42 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(aboutSection);
 });
 
-// Nascondi il loader una volta caricata la pagina
-window.addEventListener("load", () => {
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
     const loader = document.getElementById("loader");
 
-    if (!loader) {
-        console.warn("Elemento loader non trovato.");
-        return;
-    }
-
-    console.log("Page fully loaded. Hiding loader...");
-    setTimeout(() => {
-        loader.classList.add("hidden");
-    }, 700); // Nascondi il loader con un ritardo
+    window.addEventListener("load", () => {
+        console.log("Page fully loaded. Hiding loader...");
+        // Ritardo di 2 secondi prima di nascondere il loader
+        setTimeout(() => {
+            loader.classList.add("hidden");
+        }, 700); // 2000 millisecondi = 2 secondi
+    });
 });
 
-// Funzione per validare il form
+
+/// Funzione per validare il form
 function validateForm(event) {
     event.preventDefault(); // Previene l'invio del form
 
     // Ottieni i campi del modulo
-    const fields = {
-        name: document.getElementById('name'),
-        surname: document.getElementById('surname'),
-        email: document.getElementById('email'),
-        subject: document.getElementById('subject'),
-        message: document.getElementById('message')
-    };
+    const name = document.getElementById('name');
+    const surname = document.getElementById('surname');
+    const email = document.getElementById('email');
+    const subject = document.getElementById('subject');
+    const message = document.getElementById('message');
 
     // Regex per validare l'email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Flag per verificare se ci sono errori
     let hasError = false;
 
     // Funzione per mostrare l'errore
     function showError(input, message) {
-        if (!input) return;
         const errorElement = input.nextElementSibling;
         if (errorElement) {
             errorElement.textContent = message;
@@ -135,7 +122,6 @@ function validateForm(event) {
 
     // Funzione per rimuovere l'errore
     function removeError(input) {
-        if (!input) return;
         const errorElement = input.nextElementSibling;
         if (errorElement) {
             errorElement.textContent = '';
@@ -144,28 +130,49 @@ function validateForm(event) {
     }
 
     // Validazione dei campi
-    Object.entries(fields).forEach(([key, input]) => {
-        if (!input || !input.value.trim()) {
-            showError(input, `Il campo ${key} è obbligatorio.`);
-        } else if (key === 'email' && !emailRegex.test(input.value)) {
-            showError(input, 'Inserisci un indirizzo email valido.');
+    if (!name.value.trim()) {
+        showError(name, 'Il nome è obbligatorio.');
+    } else {
+        removeError(name);
+    }
+
+    if (!surname.value.trim()) {
+        showError(surname, 'Il cognome è obbligatorio.');
+    } else {
+        removeError(surname);
+    }
+
+    if (!email.value.trim() || !emailRegex.test(email.value)) {
+        if (!email.value.includes('@')) {
+            showError(email, 'L\'email deve contenere il simbolo "@"');
         } else {
-            removeError(input);
+            showError(email, 'Inserisci un indirizzo email valido.');
         }
-    });
+    } else {
+        removeError(email);
+    }
+
+    if (!subject.value.trim()) {
+        showError(subject, 'L\'oggetto è obbligatorio.');
+    } else {
+        removeError(subject);
+    }
+
+    if (!message.value.trim()) {
+        showError(message, 'Il messaggio è obbligatorio.');
+    } else {
+        removeError(message);
+    }
 
     // Se non ci sono errori, invia il form
     if (!hasError) {
-        alert('Grazie per avermi contattato');
+        alert('Form inviato con successo!');
+        document.getElementById('contactForm').reset(); // Reset del form
     }
 }
 
-// Supporto per dispositivi touch
+// Ensure menu works on touch devices
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
-    if (!hamburger) {
-        console.warn("Elemento hamburger non trovato.");
-        return;
-    }
-    hamburger.addEventListener('touchstart', toggleMenu, { passive: true });
+    hamburger.addEventListener('touchstart', toggleMenu);
 });

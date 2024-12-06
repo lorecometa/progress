@@ -1096,3 +1096,47 @@ footer .social-icons a:hover {
 @media (max-width: 576px) {
     .carousel img { width: 100%; height: auto; }
 }
+
+
+/* Responsive layout for small devices */
+@media (max-width: 576px) {
+    body {
+        font-size: 14px;
+    }
+    .navbar .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contacts-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* Add space between image and form */
+    }
+    .contact-image img {
+        width: 100%; /* Fit the image to the container width */
+        height: auto;
+    }
+    .contact-form {
+        width: 100%; /* Ensure the form fits the container width */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+    .about-container {
+        flex-direction: column;
+    }
+    .about-text {
+        text-align: center;
+        padding: 15px;
+    }
+    .about-image img {
+        width: 80%;
+        height: auto;
+    }
+    .contact-form {
+        margin: 0 10px;
+    }
+}
