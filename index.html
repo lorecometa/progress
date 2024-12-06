@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Portfolio</title>
+    <link href="./css/style_portfolio.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <script defer="" src="./javascript/script.js"></script>
+    <link href="./style_portfolio.css" rel="stylesheet"/>
+</head>
+<body>
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a class="logo" href="#">Portfolio COMETA LORENZO</a>
+                <button class="hamburger" onclick="toggleMenu()">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <ul class="menu">
+                    <ul class="menu">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./progetti.html">Progetti</a></li>
+                        <li><a href="./chi_sono.html">Chi sono</a></li>
+                        <li><a href="./contatti.html">Contatti</a></li>
+                    </ul>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Home Section -->
+        <section class="home" id="home">
+            <div class="container">
+                <h1>Benvenuto nel mio Portfolio</h1>
+                <p>Esplora i miei lavori, conosci chi sono e scopri come posso aiutarti!</p>
+            </div>
+        </section>
+        <!-- Carousel Section -->
+        <section class="carousel-container" id="works">
+            <h2>I miei lavori</h2>
+            <div class="carousel">
+                <div class="slide active">
+                    <img alt="Lavoro 1" src="./img/pexels-canvastudio-3153201.jpg"/>
+                </div>
+                <div class="slide">
+                    <img alt="Lavoro 2" src="./img/pexels-danny-meneses-340146-943096.jpg"/>
+                </div>
+                <div class="slide">
+                    <img alt="Lavoro 3" src="./img/pexels-knownasovan-57690.jpg"/>
+                </div>
+            </div>
+            <button class="prev" onclick="changeSlide(-1)">❮</button>
+            <button class="next" onclick="changeSlide(1)">❯</button>
+        </section>
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="container">
+                <h2>Trasformare concetti in realtà: Immagina. Crea. Realizza</h2>
+            </div>
+        </section>
+        <!-- Contacts Section -->
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>Seguimi su:</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
+            <p>© 2024 - Tutti i diritti riservati</p>
+        </div>
+    </footer>
+    <section class="about-container">
+        <div class="about-text">
+            <h2>Chi sono</h2>
+            <p>Testo descrittivo per la sezione 'Chi sono'.</p>
+        </div>
+        <div class="about-image">
+            <img alt="Immagine personale" src="./image.png"/>
+        </div>
+    </section>
+</html>

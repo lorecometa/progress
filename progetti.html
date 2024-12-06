@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Progetti</title>
+    <link href="./css/style_portfolio.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <script defer="" src="./javascript/script.js"></script>
+    <link href="./style_portfolio.css" rel="stylesheet"/>
+</head>
+<body>
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a class="logo" href="#">Portfolio</a>
+                <button class="hamburger" onclick="toggleMenu()">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <ul class="menu">
+                    <ul class="menu">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./progetti.html">Progetti</a></li>
+                        <li><a href="./chi_sono.html">Chi sono</a></li>
+                        <li><a href="./contatti.html">Contatti</a></li>
+                    </ul>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="projects-section" id="projects">
+            <h2>Progetti</h2>
+            <div class="project">
+                <h3>Progetto 1</h3>
+                <button class="toggle-button" onclick="toggleDetails('details1')">Mostra Dettagli</button>
+                <div class="details hidden" id="details1">
+                    <h4>Dettagli Progetto 1</h4>
+                    <p>Esperienze dettagliate del Progetto 1.</p>
+                    <br/>
+                    <button class="toggle-button" onclick="toggleDetails('details1')">Chiudi</button>
+                </div>
+            </div>
+            <div class="project">
+                <h3>Progetto 2</h3>
+                <button class="toggle-button" onclick="toggleDetails('details2')">Mostra Dettagli</button>
+                <div class="details hidden" id="details2">
+                    <h4>Dettagli Progetto 2</h4>
+                    <p>Esperienze dettagliate del Progetto 2.</p>
+                    <button class="toggle-button" onclick="toggleDetails('details2')">Chiudi</button>
+                </div>
+            </div>
+            <div class="project">
+                <h3>Progetto 3</h3>
+                <button class="toggle-button" onclick="toggleDetails('details3')">Mostra Dettagli</button>
+                <div class="details hidden" id="details3">
+                    <h4>Dettagli Progetto 3</h4>
+                    <p>Esperienze dettagliate del Progetto 3.</p>
+                    <button class="toggle-button" onclick="toggleDetails('details3')">Chiudi</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>Seguimi su:</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
+            <p>© 2024 - Tutti i diritti riservati</p>
+        </div>
+    </footer>
+</body>
+</html>

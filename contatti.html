@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Contatti</title>
+    <link rel="stylesheet" href="./css/style_portfolio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="./javascript/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="#" class="logo">Portfolio</a>
+                <button class="hamburger" onclick="toggleMenu()">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <ul class="menu">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./progetti.html">Progetti</a></li>
+                    <li><a href="./chi_sono.html">Chi sono</a></li>
+                    <li><a href="./contatti.html">Contatti</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contacts" class="contacts-section">
+            <div class="contacts-container">
+                <!-- Left Image -->
+                <div class="contact-image">
+                    <img src="./img/pexels-danny-meneses-340146-943096.jpg" alt="Contattami" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                </div>
+                
+                <!-- Right Form -->
+                <div class="contact-form">
+                    <h2>Contattami</h2>
+                    <p>Compila il modulo sottostante per inviarmi un messaggio.</p>
+                    <form id="contactForm" action="https://formspree.io/f/mnnqryqd" method="POST">
+                        <div>
+                            <label for="name">Nome:</label>
+                            <input type="text" id="name" name="name" placeholder="Il tuo nome">
+                            <span></span> <!-- Messaggio di errore -->
+                        </div>
+                        <div>
+                            <label for="surname">Cognome:</label>
+                            <input type="text" id="surname" name="surname" placeholder="Il tuo cognome">
+                            <span></span> <!-- Messaggio di errore -->
+                        </div>
+                        <div>
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" name="email" placeholder="La tua email">
+                            <span></span> <!-- Messaggio di errore -->
+                        </div>
+                        <div>
+                            <label for="subject">Oggetto:</label>
+                            <input type="text" id="subject" name="subject" placeholder="Oggetto del messaggio">
+                            <span></span> <!-- Messaggio di errore -->
+                        </div>
+                        <div>
+                            <label for="message">Messaggio:</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Il tuo messaggio"></textarea>
+                            <span></span> <!-- Messaggio di errore -->
+                        </div>
+                        <button type="submit">Invia</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>Seguimi su:</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 - Tutti i diritti riservati</p>
+        </div>
+    </footer>
+</body>
+</html>
